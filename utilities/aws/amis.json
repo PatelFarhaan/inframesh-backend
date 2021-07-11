@@ -1,0 +1,252 @@
+{
+  "ubuntu": [
+    {
+            "Architecture": "x86_64",
+            "CreationDate": "2021-05-24T12:16:58.000Z",
+            "ImageId": "ami-08eb264d6b7e64dde",
+            "ImageLocation": "aws-marketplace/Nemu Hardened Computing Ubuntu 20.04 2021Q2-7bc9d39b-e881-41ef-83ff-d5d9e2a56ec9",
+            "ImageType": "machine",
+            "Public": true,
+            "OwnerId": "679593333241",
+            "PlatformDetails": "Linux/UNIX",
+            "UsageOperation": "RunInstances",
+            "ProductCodes": [
+                {
+                    "ProductCodeId": "7bttus5xz4gq9loxbvp0svmbt",
+                    "ProductCodeType": "marketplace"
+                }
+            ],
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "DeleteOnTermination": true,
+                        "SnapshotId": "snap-09ac7c513c48db452",
+                        "VolumeSize": 8,
+                        "VolumeType": "gp2",
+                        "Encrypted": false
+                    }
+                },
+                {
+                    "DeviceName": "/dev/sdb",
+                    "VirtualName": "ephemeral0"
+                },
+                {
+                    "DeviceName": "/dev/sdc",
+                    "VirtualName": "ephemeral1"
+                }
+            ],
+            "Description": "Ubuntu 20.04.2 STIG v1r1 | Based on ami-09e67e426f25ce0d7",
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "ImageOwnerAlias": "aws-marketplace",
+            "Name": "Nemu Hardened Computing Ubuntu 20.04 2021Q2-7bc9d39b-e881-41ef-83ff-d5d9e2a56ec9",
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SriovNetSupport": "simple",
+            "VirtualizationType": "hvm"
+        },
+    {
+            "Architecture": "arm64",
+            "CreationDate": "2021-04-29T21:30:53.000Z",
+            "ImageId": "ami-00d1ab6b335f217cf",
+            "ImageLocation": "099720109477/ubuntu/images/hvm-ssd/ubuntu-focal-20.04-arm64-server-20210429",
+            "ImageType": "machine",
+            "Public": true,
+            "OwnerId": "099720109477",
+            "PlatformDetails": "Linux/UNIX",
+            "UsageOperation": "RunInstances",
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "DeleteOnTermination": true,
+                        "SnapshotId": "snap-00269d13b7fc17008",
+                        "VolumeSize": 8,
+                        "VolumeType": "gp2",
+                        "Encrypted": false
+                    }
+                },
+                {
+                    "DeviceName": "/dev/sdb",
+                    "VirtualName": "ephemeral0"
+                },
+                {
+                    "DeviceName": "/dev/sdc",
+                    "VirtualName": "ephemeral1"
+                }
+            ],
+            "Description": "Canonical, Ubuntu, 20.04 LTS, arm64 focal image build on 2021-04-29",
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "Name": "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-arm64-server-20210429",
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SriovNetSupport": "simple",
+            "VirtualizationType": "hvm"
+        },
+    {
+            "Architecture": "x86_64",
+            "CreationDate": "2021-04-16T16:11:53.000Z",
+            "ImageId": "ami-0747bdcabd34c712a",
+            "ImageLocation": "099720109477/ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20210415",
+            "ImageType": "machine",
+            "Public": true,
+            "OwnerId": "099720109477",
+            "PlatformDetails": "Linux/UNIX",
+            "UsageOperation": "RunInstances",
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "DeleteOnTermination": true,
+                        "SnapshotId": "snap-04753b6396410a049",
+                        "VolumeSize": 8,
+                        "VolumeType": "gp2",
+                        "Encrypted": false
+                    }
+                },
+                {
+                    "DeviceName": "/dev/sdb",
+                    "VirtualName": "ephemeral0"
+                },
+                {
+                    "DeviceName": "/dev/sdc",
+                    "VirtualName": "ephemeral1"
+                }
+            ],
+            "Description": "Canonical, Ubuntu, 18.04 LTS, amd64 bionic image build on 2021-04-15",
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "Name": "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20210415",
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SriovNetSupport": "simple",
+            "VirtualizationType": "hvm"
+        },
+    {
+            "Architecture": "arm64",
+            "CreationDate": "2021-04-16T16:09:03.000Z",
+            "ImageId": "ami-08353a25e80beea3e",
+            "ImageLocation": "099720109477/ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-arm64-server-20210415",
+            "ImageType": "machine",
+            "Public": true,
+            "OwnerId": "099720109477",
+            "PlatformDetails": "Linux/UNIX",
+            "UsageOperation": "RunInstances",
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "DeleteOnTermination": true,
+                        "SnapshotId": "snap-088bc748311205a8f",
+                        "VolumeSize": 8,
+                        "VolumeType": "gp2",
+                        "Encrypted": false
+                    }
+                },
+                {
+                    "DeviceName": "/dev/sdb",
+                    "VirtualName": "ephemeral0"
+                },
+                {
+                    "DeviceName": "/dev/sdc",
+                    "VirtualName": "ephemeral1"
+                }
+            ],
+            "Description": "Canonical, Ubuntu, 18.04 LTS, arm64 bionic image build on 2021-04-15",
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "Name": "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-arm64-server-20210415",
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SriovNetSupport": "simple",
+            "VirtualizationType": "hvm"
+        },
+    {
+            "Architecture": "x86_64",
+            "CreationDate": "2021-04-29T05:50:56.000Z",
+            "ImageId": "ami-0ee02acd56a52998e",
+            "ImageLocation": "099720109477/ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20210429",
+            "ImageType": "machine",
+            "Public": true,
+            "OwnerId": "099720109477",
+            "PlatformDetails": "Linux/UNIX",
+            "UsageOperation": "RunInstances",
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "DeleteOnTermination": true,
+                        "SnapshotId": "snap-02ea480fc9e115bab",
+                        "VolumeSize": 8,
+                        "VolumeType": "gp2",
+                        "Encrypted": false
+                    }
+                },
+                {
+                    "DeviceName": "/dev/sdb",
+                    "VirtualName": "ephemeral0"
+                },
+                {
+                    "DeviceName": "/dev/sdc",
+                    "VirtualName": "ephemeral1"
+                }
+            ],
+            "Description": "Canonical, Ubuntu, 16.04 LTS, amd64 xenial image build on 2021-04-29",
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "Name": "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20210429",
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SriovNetSupport": "simple",
+            "VirtualizationType": "hvm"
+        },
+    {
+            "Architecture": "arm64",
+            "CreationDate": "2021-04-29T05:40:58.000Z",
+            "ImageId": "ami-0e011417bd70948da",
+            "ImageLocation": "099720109477/ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-arm64-server-20210429",
+            "ImageType": "machine",
+            "Public": true,
+            "OwnerId": "099720109477",
+            "PlatformDetails": "Linux/UNIX",
+            "UsageOperation": "RunInstances",
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "DeleteOnTermination": true,
+                        "SnapshotId": "snap-0ae371fc444820fc3",
+                        "VolumeSize": 8,
+                        "VolumeType": "gp2",
+                        "Encrypted": false
+                    }
+                },
+                {
+                    "DeviceName": "/dev/sdb",
+                    "VirtualName": "ephemeral0"
+                },
+                {
+                    "DeviceName": "/dev/sdc",
+                    "VirtualName": "ephemeral1"
+                }
+            ],
+            "Description": "Canonical, Ubuntu, 16.04 LTS, arm64 xenial image build on 2021-04-29",
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "Name": "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-arm64-server-20210429",
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SriovNetSupport": "simple",
+            "VirtualizationType": "hvm"
+        }
+  ],
+  "amazon_linux": []
+}
