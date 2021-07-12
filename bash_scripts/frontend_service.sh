@@ -54,6 +54,5 @@ sudo systemctl restart nginx &&
 sudo systemctl restart supervisor
 
 
-
 # Make sure start.sh is present in the branch and has the config set as:
 # serve -s build -l 3000

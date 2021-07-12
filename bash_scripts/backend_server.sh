@@ -47,6 +47,10 @@ sudo rm -rf /etc/nginx/sites-enabled/default &&
 
 sudo rm -rf /etc/nginx/sites-available/default &&
 
+# cp nnginx file to /etc/nginx/sites-available/
+
+# cp "nginx/$nginx_env" /etc/nginx/sites-available/ &&
+
 sudo cp "nginx/$nginx_env" /etc/nginx/sites-available/ &&
 
 sudo ln -sf "/etc/nginx/sites-available/$nginx_env" /etc/nginx/sites-enabled/
