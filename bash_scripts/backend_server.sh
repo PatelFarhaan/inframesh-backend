@@ -1,10 +1,12 @@
 #! /bin/bash
 
-project_name="webapp" &&
+ssh_username="ubuntu" &&
 
-nginx_env="dev.conf" &&
+project_name=$project_name &&
 
-backend_project_path="/home/ubuntu/$project_name" &&
+external_backend_port=$external_backend_port &&
+
+backend_project_path="/home/$ssh_username/$project_name" &&
 
 sudo apt-get update && sudo apt-get upgrade -y &&
 
@@ -18,7 +20,9 @@ sudo apt update &&
 
 sudo apt install nginx -y &&
 
-cd $backend_project_path && sudo chmod +x start.sh &&
+cd "$backend_project_path" &&
+
+sudo chmod +x start.sh &&
 
 virtualenv venv &&
 
@@ -47,21 +51,27 @@ sudo rm -rf /etc/nginx/sites-enabled/default &&
 
 sudo rm -rf /etc/nginx/sites-available/default &&
 
-# cp nnginx file to /etc/nginx/sites-available/
+echo "
+server {
+   listen        80
+   server_name   - ;
+   root           /var/www/;
 
-# cp "nginx/$nginx_env" /etc/nginx/sites-available/ &&
+   location /api/v1/ {
+       proxy_pass http://127.0.0.1:$external_backend_port;
+       proxy_http_version 1.1;
+       proxy_set_header Upgrade \$http_upgrade;
+       proxy_set_header Connection 'upgrade';
+       proxy_set_header Host \$host;
+       proxy_cache_bypass \$http_upgrade;
+   }
+}
+" > prod.conf &&
 
-sudo cp "nginx/$nginx_env" /etc/nginx/sites-available/ &&
+sudo cp prod.conf /etc/nginx/sites-available/ &&
 
-sudo ln -sf "/etc/nginx/sites-available/$nginx_env" /etc/nginx/sites-enabled/
+sudo ln -sf /etc/nginx/sites-available/prod.conf /etc/nginx/sites-enabled/
 
 sudo systemctl restart nginx &&
 
 sudo systemctl restart supervisor
-
-
-
-# Make sure start.sh is present in the branch and has the Gunicorn config set as:
-# cd /home/ubuntu/webapp &&
-# source venv/bin/activate &&
-# gunicorn --workers=2 --threads=4 --bind=0.0.0.0:5000 app:app
