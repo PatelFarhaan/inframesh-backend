@@ -6,25 +6,27 @@ project_name=$project_name &&
 
 external_port=$external_port &&
 
-sudo apt-get update && sudo apt-get upgrade -y &&
+frontend_project_path="/home/$ssh_username/$project_name" &&
 
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - &&
+apt-get update && apt-get upgrade -y &&
 
-sudo apt-get install -y nodejs &&
+curl -sL https://deb.nodesource.com/setup_12.x | -E bash - &&
 
-sudo apt update &&
+apt-get install -y nodejs &&
 
-cd $frontend_project_path && sudo chmod +x start.sh &&
+apt update &&
+
+cd $frontend_project_path && chmod +x start.sh &&
 
 npm install &&
 
 npm run build &&
 
-sudo apt-get install supervisor -y &&
+apt-get install supervisor -y &&
 
-sudo npm install -g serve &&
+npm install -g serve &&
 
-sudo apt install nginx -y &&
+apt install nginx -y &&
 
 echo "
 [program:frontend-service]
@@ -37,22 +39,35 @@ stopasgroup=true
 killasgroup=true
 " > frontend-service.conf &&
 
-sudo cp -u frontend-service.conf /etc/supervisor/conf.d/ &&
+cp frontend-service.conf /etc/supervisor/conf.d/ &&
 
-sudo rm -rf frontend-service.conf &&
+rm -rf frontend-service.conf &&
 
-sudo rm -rf /etc/nginx/sites-enabled/default &&
+rm -rf /etc/nginx/sites-enabled/default &&
 
-sudo rm -rf /etc/nginx/sites-available/default &&
+rm -rf /etc/nginx/sites-available/default &&
 
-sudo cp -u "nginx/$nginx_env" /etc/nginx/sites-available/ &&
+echo "
+server {
+   listen        80;
+   server_name   - ;
+   root           /var/www/;
 
-sudo ln -sf "/etc/nginx/sites-available/$nginx_env" /etc/nginx/sites-enabled/
+   location /api/v1/ {
+       proxy_pass http://127.0.0.1:$external_port;
+       proxy_http_version 1.1;
+       proxy_set_header Upgrade \$http_upgrade;
+       proxy_set_header Connection 'upgrade';
+       proxy_set_header Host \$host;
+       proxy_cache_bypass \$http_upgrade;
+   }
+}
+" > prod.conf &&
 
-sudo systemctl restart nginx &&
+cp prod.conf /etc/nginx/sites-available/ &&
 
-sudo systemctl restart supervisor
+ln -sf /etc/nginx/sites-available/prod.conf /etc/nginx/sites-enabled/
 
+systemctl restart nginx &&
 
-# Make sure start.sh is present in the branch and has the config set as:
-# serve -s build -l 3000
+systemctl restart supervisor
