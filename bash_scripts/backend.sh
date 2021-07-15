@@ -1,10 +1,10 @@
 #! /bin/bash
 
-ssh_username="ubuntu" &&
+ssh_username=$ssh_username &&
 
 project_name=$project_name &&
 
-external_backend_port=$external_backend_port &&
+external_port=$external_port &&
 
 backend_project_path="/home/$ssh_username/$project_name" &&
 
@@ -53,12 +53,12 @@ sudo rm -rf /etc/nginx/sites-available/default &&
 
 echo "
 server {
-   listen        80
+   listen        80;
    server_name   - ;
    root           /var/www/;
 
    location /api/v1/ {
-       proxy_pass http://127.0.0.1:$external_backend_port;
+       proxy_pass http://127.0.0.1:$external_port;
        proxy_http_version 1.1;
        proxy_set_header Upgrade \$http_upgrade;
        proxy_set_header Connection 'upgrade';

@@ -1,10 +1,10 @@
 #! /bin/bash
 
-project_name="infrasketch" &&
+ssh_username=$ssh_username &&
 
-nginx_env="dev.conf" &&
+project_name=$project_name &&
 
-frontend_project_path="/home/ubuntu/$project_name" &&
+external_port=$external_port &&
 
 sudo apt-get update && sudo apt-get upgrade -y &&
 
