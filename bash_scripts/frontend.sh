@@ -1,32 +1,58 @@
 #! /bin/bash
 
-ssh_username=$ssh_username &&
+ssh_username="ubuntu" &&
 
 project_name=$project_name &&
 
+echo $project_name &&
+
 external_port=$external_port &&
+
+echo $external_port &&
 
 frontend_project_path="/home/$ssh_username/$project_name" &&
 
-apt-get update && apt-get upgrade -y &&
+echo $frontend_project_path &&
 
-curl -sL https://deb.nodesource.com/setup_12.x | -E bash - &&
+sudo apt-get update &&
 
-apt-get install -y nodejs &&
+sudo apt-get upgrade -y &&
 
-apt update &&
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - &&
 
-cd $frontend_project_path && chmod +x start.sh &&
+echo "CURL is DONE"
 
-npm install &&
+sudo apt-get install -y build-essential &&
 
-npm run build &&
+sudo apt-get install -y nodejs &&
 
-apt-get install supervisor -y &&
+echo "NODE JS Is DONE"
 
-npm install -g serve &&
+sudo apt-get update &&
 
-apt install nginx -y &&
+sudo apt install npm -y &&
+
+cd $frontend_project_path &&
+
+sudo chmod +x start.sh &&
+
+echo "NPM INSTALLATION START"
+
+sudo npm install &&
+
+echo "NPM Installation DONE"
+
+sudo npm run build &&
+
+echo "NPM BUILD DONE"
+
+sudo apt-get install supervisor -y &&
+
+sudo npm install -g serve &&
+
+sudo apt install nginx -y &&
+
+echo "SUPERVSIOR NGNX DONE"
 
 echo "
 [program:frontend-service]
@@ -39,13 +65,15 @@ stopasgroup=true
 killasgroup=true
 " > frontend-service.conf &&
 
-cp frontend-service.conf /etc/supervisor/conf.d/ &&
+sudo cp frontend-service.conf /etc/supervisor/conf.d/ &&
 
-rm -rf frontend-service.conf &&
+sudo rm -rf frontend-service.conf &&
 
-rm -rf /etc/nginx/sites-enabled/default &&
+sudo rm -rf /etc/nginx/sites-enabled/default &&
 
-rm -rf /etc/nginx/sites-available/default &&
+sudo rm -rf /etc/nginx/sites-available/default &&
+
+echo "ALL CONFIGURATION DONE!!!!"
 
 echo "
 server {
@@ -64,10 +92,10 @@ server {
 }
 " > prod.conf &&
 
-cp prod.conf /etc/nginx/sites-available/ &&
+sudo cp prod.conf /etc/nginx/sites-available/ &&
 
-ln -sf /etc/nginx/sites-available/prod.conf /etc/nginx/sites-enabled/
+sudo ln -sf /etc/nginx/sites-available/prod.conf /etc/nginx/sites-enabled/ &&
 
-systemctl restart nginx &&
+sudo systemctl restart nginx &&
 
-systemctl restart supervisor
+sudo systemctl restart supervisor
