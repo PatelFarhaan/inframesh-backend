@@ -1,13 +1,14 @@
 {
    "builders": [{
       "type": "amazon-ebs",
-      "access_key": "{{user `aws_access_key`}}",
-      "secret_key": "{{user `aws_secret_access_key`}}",
-      "region": "{{user `aws_region`}}",
-      "source_ami": "{{user `aws_source_ami`}}",
-      "instance_type": "{{user `aws_instance_type`}}",
+      "access_key": "{{user `access_key`}}",
+      "secret_key": "{{user `secret_access_key`}}",
+      "region": "{{user `region`}}",
+      "instance_type": "{{user `instance_type`}}",
       "ssh_username": "{{user `ssh_username`}}",
-      "ami_name": "{{user `aws_ami_name`}}"
+      "ami_name": "{{user `ami_name`}}",
+      "ami_regions": "{{user `region`}}",
+      "source_ami": "{{user `source_ami`}}"
    }],
    "provisioners": [{
          "type": "shell",
@@ -27,7 +28,8 @@
             "project_name={{user `project_name`}}",
             "external_port={{user `external_port`}}"
          ],
-         "scripts": ["{{user `sh_path`}}"]
+         "scripts": ["{{user `sh_path`}}"],
+         "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E '{{ .Path }}'"
       }
    ]
 }

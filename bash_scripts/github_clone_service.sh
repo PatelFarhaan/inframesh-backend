@@ -1,8 +1,8 @@
-github_username=$github_username
 ssh_username=$ssh_username
+project_name=$project_name
+github_username=$github_username
 github_token=$github_token
 repo_name=$repo_name
-project_name=$project_name
 
 # ssh_username=$1
 # project_name=$2

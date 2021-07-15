@@ -8,21 +8,21 @@ external_port=$external_port &&
 
 backend_project_path="/home/$ssh_username/$project_name" &&
 
-sudo apt-get update && sudo apt-get upgrade -y &&
+apt-get update && apt-get upgrade -y &&
 
-sudo apt-get install python3-pip -y &&
+apt-get install python3-pip -y &&
 
-sudo pip3 install virtualenv &&
+pip3 install virtualenv &&
 
-sudo apt-get install supervisor -y &&
+apt-get install supervisor -y &&
 
-sudo apt update &&
+apt update &&
 
-sudo apt install nginx -y &&
+apt install nginx -y &&
 
 cd "$backend_project_path" &&
 
-sudo chmod +x start.sh &&
+chmod +x start.sh &&
 
 virtualenv venv &&
 
@@ -43,13 +43,13 @@ stopasgroup=true
 killasgroup=true
 " > backend-service.conf &&
 
-sudo cp backend-service.conf /etc/supervisor/conf.d/ &&
+cp backend-service.conf /etc/supervisor/conf.d/ &&
 
-sudo rm -rf backend-service.conf &&
+rm -rf backend-service.conf &&
 
-sudo rm -rf /etc/nginx/sites-enabled/default &&
+rm -rf /etc/nginx/sites-enabled/default &&
 
-sudo rm -rf /etc/nginx/sites-available/default &&
+rm -rf /etc/nginx/sites-available/default &&
 
 echo "
 server {
@@ -68,10 +68,10 @@ server {
 }
 " > prod.conf &&
 
-sudo cp prod.conf /etc/nginx/sites-available/ &&
+cp prod.conf /etc/nginx/sites-available/ &&
 
-sudo ln -sf /etc/nginx/sites-available/prod.conf /etc/nginx/sites-enabled/
+ln -sf /etc/nginx/sites-available/prod.conf /etc/nginx/sites-enabled/
 
-sudo systemctl restart nginx &&
+systemctl restart nginx &&
 
-sudo systemctl restart supervisor
+systemctl restart supervisor
