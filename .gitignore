@@ -1,2 +1,36 @@
+# OS
 .DS_Store
+
+# IDE
 .idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+
+# Environment
+.env
+!.env.example
+
+# Packer
+packer_cache/
+manifest.json
+console_*.txt
+
+# Credentials
+*.pem
+*.key
+*.pkvars.hcl
+!*.pkvars.hcl.example
+*.tfvars
+!*.tfvars.example
+
+# Logs
+*.log
+
+# Redis
+dump.rdb

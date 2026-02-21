@@ -1,10 +1,10 @@
 #!/bin/bash
 
-grafana_email="test"
+grafana_email="${GRAFANA_EMAIL:-admin}"
 
 grafana_plugins="grafana-piechart-panel" # seperated by ,
 
-grafana_password="***REMOVED***"
+grafana_password="${GRAFANA_PASSWORD:-changeme}"
 
 grafana_dir=/home/ubuntu/data/grafana
 
@@ -78,8 +78,8 @@ sudo docker run \
    --name=grafana \
    --restart always \
    -v /home/ubuntu/data/grafana:/var/lib/grafana \
-   -e "GF_SECURITY_ADMIN_USER=farhaan" \
-   -e "GF_SECURITY_ADMIN_PASSWORD=farees" \
+   -e "GF_SECURITY_ADMIN_USER=${GRAFANA_EMAIL:-admin}" \
+   -e "GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-changeme}" \
    -e "GF_INSTALL_PLUGINS=grafana-piechart-panel" \
    grafana/grafana
 

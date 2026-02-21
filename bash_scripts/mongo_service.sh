@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-mongo_username="***REMOVED_PASSWORD***"
+mongo_username="${MONGO_USERNAME:-admin}"
 
-mongo_password="***REMOVED_PASSWORD***"
+mongo_password="${MONGO_PASSWORD:-changeme}"
 
 sudo apt-get update && sudo apt-get upgrade -y &&
 

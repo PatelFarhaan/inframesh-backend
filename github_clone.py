@@ -27,9 +27,9 @@ class GithubClone(object):
 
 
 if __name__ == '__main__':
-    username = "zequbal-star"
-    token = "***REMOVED_GITHUB_PAT***"
-    repo_name = "youtube_video_code"
+    username = os.environ.get("GITHUB_USERNAME", "your-username")
+    token = os.environ.get("GITHUB_TOKEN", "your-token")
+    repo_name = os.environ.get("GITHUB_REPO", "your-repo")
 
     github = GithubClone(username, token, repo_name)
     github.clone()
